@@ -10,9 +10,6 @@ interface State {
 
 export default class __ComponentName__ extends React.Component<Props, State> {
   static displayName = '__ComponentName__'
-  static propTypes = {
-
-  }
 
   render () {
     return (

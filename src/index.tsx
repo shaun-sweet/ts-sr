@@ -8,6 +8,7 @@ import history from './config/history'
 import { PersistGate } from 'redux-persist/integration/react'
 import Layout from '~components/Layout'
 const { store, persistor } = storeConfig()
+import 'antd/dist/antd.css'
 
 function renderApp () {
   ReactDOM.render(

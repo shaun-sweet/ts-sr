@@ -8,7 +8,8 @@
     "baseUrl": "src",
     "paths": {
       "~lib/*": ["lib/*"],
-      "~components/*": [ "features/common/components/*" ]
+      "~components/*": [ "features/common/components/*" ],
+      "~features/*": [ "features/*" ]
     }
   },
   "exclude": ["node_modules", "templates"]

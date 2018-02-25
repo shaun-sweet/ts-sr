@@ -3,7 +3,7 @@ const Webpack = require('webpack');
 const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const autoprefixer = require('autoprefixer')
 const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = Path.join(__dirname, './dist');
 const sourcePath = Path.join(__dirname, './src');
@@ -47,36 +47,37 @@ module.exports = {
             'awesome-typescript-loader'
           ]
       },
-      // css
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              query: {
-                modules: true,
-                sourceMap: !isProduction,
-                importLoaders: 1,
-                localIdentName: '[local]__[hash:base64:5]'
-              }
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+            options: {
+              importLoaders: 1,
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: [
-                  require('postcss-import')({ addDependencyTo: Webpack }),
-                  require('postcss-url')(),
-                  require('postcss-cssnext')(),
-                  require('postcss-reporter')(),
-                  require('postcss-browser-reporter')({ disabled: isProduction }),
-                ]
-              }
-            }
-          ]
-        })
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              // Necessary for external CSS imports to work
+              // https://github.com/facebookincubator/create-react-app/issues/2677
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9', // React doesn't support IE8 anyway
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
+          },
+        ],
       },
       // static assets
       { test: /\.html$/, use: 'html-loader' },

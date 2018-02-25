@@ -1,0 +1,3 @@
+import SaladRabbitAuthedAppContainerPage from './SaladRabbitAuthedAppContainerPage'
+
+export default SaladRabbitAuthedAppContainerPage

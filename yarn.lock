@@ -183,7 +183,7 @@ ansi-styles@^3.1.0, ansi-styles@^3.2.0:
   dependencies:
     color-convert "^1.9.0"
 
-antd@3.2.2:
+antd@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/antd/-/antd-3.2.2.tgz#522abfee52d3ba1194cf394e4b857f208c5c3c9a"
   dependencies:
@@ -411,6 +411,17 @@ autoprefixer@^7.1.1:
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^6.0.13"
+    postcss-value-parser "^3.2.3"
+
+autoprefixer@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.0.0.tgz#c19e480f061013127c373df0b01cf46919943f74"
+  dependencies:
+    browserslist "^3.0.0"
+    caniuse-lite "^1.0.30000808"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^6.0.17"
     postcss-value-parser "^3.2.3"
 
 awesome-typescript-loader@3.5.0:
@@ -670,6 +681,13 @@ browserslist@^2.0.0, browserslist@^2.5.0:
     caniuse-lite "^1.0.30000744"
     electron-to-chromium "^1.3.24"
 
+browserslist@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-3.1.1.tgz#d380fc048bc3a33e60fb87dc135110ebaaa6320a"
+  dependencies:
+    caniuse-lite "^1.0.30000809"
+    electron-to-chromium "^1.3.33"
+
 buffer-indexof@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-indexof/-/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
@@ -778,6 +796,10 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000744:
   version "1.0.30000748"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000748.tgz#44c8d6da52ad65a5d7b9dca4efebd0bdd982ba09"
+
+caniuse-lite@^1.0.30000808, caniuse-lite@^1.0.30000809:
+  version "1.0.30000810"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000810.tgz#47585fffce0e9f3593a6feea4673b945424351d9"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1538,6 +1560,10 @@ ee-first@1.1.1:
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.24:
   version "1.3.27"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.27.tgz#78ecb8a399066187bb374eede35d9c70565a803d"
+
+electron-to-chromium@^1.3.33:
+  version "1.3.34"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.34.tgz#d93498f40391bb0c16a603d8241b9951404157ed"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -4082,6 +4108,12 @@ postcss-filter-plugins@^2.0.0:
     postcss "^5.0.4"
     uniqid "^4.0.0"
 
+postcss-flexbugs-fixes@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-3.3.0.tgz#e00849b536063749da50a0d410ba5d9ee65e27b8"
+  dependencies:
+    postcss "^6.0.1"
+
 postcss-font-family-system-ui@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-font-family-system-ui/-/postcss-font-family-system-ui-2.0.1.tgz#318a075fdcb84b864aa823a51935ef0a5872e911"
@@ -4403,6 +4435,14 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     js-base64 "^2.1.9"
     source-map "^0.5.6"
     supports-color "^3.2.3"
+
+postcss@^6.0.17:
+  version "6.0.19"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.19.tgz#76a78386f670b9d9494a655bf23ac012effd1555"
+  dependencies:
+    chalk "^2.3.1"
+    source-map "^0.6.1"
+    supports-color "^5.2.0"
 
 prepend-http@^1.0.0:
   version "1.0.4"
