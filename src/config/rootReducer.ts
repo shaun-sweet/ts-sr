@@ -1,9 +1,13 @@
-import dropbox from '../features/Dropbox/redux'
-import { routerReducer } from 'react-router-redux'
+import dropbox, { DropboxState } from '../features/Dropbox/redux'
+import { routerReducer, RouterState } from 'react-router-redux'
 import { combineReducers } from 'redux'
-const reducerMap = {
-  router: routerReducer,
-  dropbox
+
+export interface RootState {
+  router: RouterState,
+  dropbox: DropboxState
 }
 
-export default combineReducers(reducerMap)
+export default combineReducers<RootState>({
+  router: routerReducer,
+  dropbox
+})

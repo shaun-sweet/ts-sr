@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { DBoxLandingPage, SuccessCallback } from '../../../features/Dropbox/pages'
 import {
   Route
 } from 'react-router-dom'
 import CompStyles from './styles'
+import { DBoxLandingPage, SuccessCallback } from '../../../Dropbox/pages'
 // import Home from '@common/pages/Home'
 
 /** Main page layout */

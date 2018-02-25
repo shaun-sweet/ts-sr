@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
-import dropboxAccountReducer from './bootstrapApp'
+import dropboxAccountReducer from './actions'
+export * from './types'
+import { DropboxAccount } from './types'
 
-const reducers = {
-  account: dropboxAccountReducer
-}
-
-export default combineReducers(reducers)
+export interface DropboxState extends DropboxAccount {}
+export default dropboxAccountReducer

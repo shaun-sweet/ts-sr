@@ -18,7 +18,9 @@
       "dom"
     ]
   },
-  "baseUrl": "src/",
+  "include": [
+    "src/**/*"
+  ],
   // Relative to "baseUrl" 
   "paths": {
     "@components/*": [
@@ -40,6 +42,7 @@
   },
   "exclude": [
     "dist",
-    "build"
+    "build",
+    "templates"
   ]
 }

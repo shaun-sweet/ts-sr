@@ -2,21 +2,30 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { object, func } from 'prop-types'
-import { bootstrapApp, saveDbxAccount } from '../redux/bootstrapApp'
+import { saveDbxAccount, SaveDbxAccountAction } from '../redux/actions'
 import { Spin } from 'antd'
 import { push } from 'react-router-redux'
 
-class SuccessCallback extends React.Component<{actions: any, redirect: any},{}> {
-  static propTypes = {
-    actions: object,
-    redirect: func.isRequired
-  }
+interface Props {
+  saveDbxAccount: SaveDbxAccountAction,
+  redirect: any
+}
+class SuccessCallback extends React.Component<Props,{}> {
 
   componentWillMount () {
-    const { bootstrapApp } = this.props.actions
+    const { saveDbxAccount } = this.props
     // eslint-disable-next-line
     const urlParams = new URLSearchParams(window.location.hash.slice(1)) // theres a hash instead of a ? so slice removes it
-    bootstrapApp(urlParams)
+    const accessToken = urlParams.get('access_token')
+    const uid = urlParams.get('uid')
+    const accountId = urlParams.get('account_id')
+    const dbxAccount = {
+      accessToken,
+      uid,
+      accountId
+    }
+
+    saveDbxAccount(dbxAccount)
   }
 
   componentDidMount () {
@@ -46,7 +55,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ bootstrapApp }, dispatch),
+    ...bindActionCreators({ saveDbxAccount }, dispatch),
     redirect (url) {
       return dispatch(push(url))
     }

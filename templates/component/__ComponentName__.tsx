@@ -14,9 +14,11 @@ export default class __ComponentName__ extends React.Component<Props, State> {
 
   }
 
-  render = () => (
-    <CompStyles className="__ComponentName__">
-      __ComponentName__
-    </CompStyles>
-  )
+  render () {
+    return (
+      <CompStyles className="__ComponentName__">
+        __ComponentName__
+      </CompStyles>
+    )
+  }
 }
