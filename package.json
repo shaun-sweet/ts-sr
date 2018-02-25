@@ -54,7 +54,7 @@
     "typescript": "2.8.0-dev.20180224",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
-    "webpack-dev-server": "2.9.3"
+    "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
     "antd": "3.2.1",
