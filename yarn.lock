@@ -51,9 +51,9 @@
   version "16.0.16"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.16.tgz#f0652a5a3acc1706ec729c8fba3976acbf45b827"
 
-"@types/redux-actions@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.2.2.tgz#e9d488c83ce1244178956cb0580a5aec3349eb4f"
+"@types/redux-actions@2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.2.4.tgz#7794077a91df223c9dccc035a2d3e9b88d8bc18e"
 
 "@types/source-map@*":
   version "0.5.1"

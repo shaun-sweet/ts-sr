@@ -24,7 +24,7 @@
     "@types/react-redux": "5.0.10",
     "@types/react-router": "4.0.15",
     "@types/react-router-redux": "5.0.12",
-    "@types/redux-actions": "2.2.2",
+    "@types/redux-actions": "2.2.4",
     "@types/webpack": "3.0.13",
     "@types/webpack-env": "1.13.2",
     "awesome-typescript-loader": "3.2.3",
