@@ -1,0 +1,13 @@
+{
+  "defaultSeverity": "error",
+  "exclude": ["node_modules", "dist", "src/registerServiceWorker"],
+  "extends": "tslint-config-standard",
+  "jsRules": {},
+  "rules": {
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "quotemark": [true, "single", "jsx-double"]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
+}
