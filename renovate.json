@@ -2,5 +2,9 @@
   "extends": [
     "config:base"
   ],
-  "rebaseStalePrs": true
+  "rebaseStalePrs": true,
+  "automerge": true,
+  "major": {
+    "automerge": false
+  }
 }
