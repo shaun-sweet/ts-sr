@@ -1,4 +1,4 @@
-import dropbox, { DropboxState } from '../features/Dropbox/redux'
+import { DropboxState, dropboxReducer as dropbox } from '../features/Dropbox/redux'
 import { routerReducer, RouterState } from 'react-router-redux'
 import { combineReducers } from 'redux'
 

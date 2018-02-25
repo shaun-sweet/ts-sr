@@ -1,4 +1,8 @@
-
+import { Dispatch } from 'react-redux'
+export interface ConnectedReduxProps<S> {
+  // Gives us the dispatch type for this.props.dispatch
+  dispatch: Dispatch<S>
+}
 interface Action<T extends string> {
   type: T
 }

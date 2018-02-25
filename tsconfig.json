@@ -1,48 +1,15 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "target": "es5",
+    "noImplicitAny": false,
     "jsx": "react",
     "module": "commonjs",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "declaration": false,
-    "noImplicitAny": false,
-    "noImplicitReturns": false,
-    "removeComments": true,
-    "strictNullChecks": false,
-    "outDir": "build",
-    "lib": [
-      "es6",
-      "es7",
-      "dom"
-    ]
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "~lib/*": ["lib/*"],
+      "~components/*": [ "features/common/components/*" ]
+    }
   },
-  "include": [
-    "src/**/*"
-  ],
-  // Relative to "baseUrl" 
-  "paths": {
-    "@components/*": [
-      "common/components/*"
-    ],
-    "@common/*":
-    [
-      "common/*"
-    ],
-    "@/*": [
-      "./*"
-    ],
-    "@features/*": [
-      "./features/*"
-    ],
-    "@config/*": [
-      "config/*"
-    ]
-  },
-  "exclude": [
-    "dist",
-    "build",
-    "templates"
-  ]
+  "exclude": ["node_modules", "templates"]
 }

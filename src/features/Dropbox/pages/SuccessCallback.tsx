@@ -2,35 +2,34 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { object, func } from 'prop-types'
-import { saveDbxAccount, SaveDbxAccountAction } from '../redux/actions'
+import { actions } from '../redux/actions'
 import { Spin } from 'antd'
 import { push } from 'react-router-redux'
+import { ConnectedReduxProps } from '~lib/actionHelper'
+import { DropboxAccount } from 'features/Dropbox/redux'
+import { RootState } from 'config/rootReducer'
 
-interface Props {
-  saveDbxAccount: SaveDbxAccountAction,
-  redirect: any
-}
+interface Props extends ConnectedReduxProps<{}> {}
 class SuccessCallback extends React.Component<Props,{}> {
 
   componentWillMount () {
-    const { saveDbxAccount } = this.props
     // eslint-disable-next-line
     const urlParams = new URLSearchParams(window.location.hash.slice(1)) // theres a hash instead of a ? so slice removes it
     const accessToken = urlParams.get('access_token')
     const uid = urlParams.get('uid')
     const accountId = urlParams.get('account_id')
-    const dbxAccount = {
+    const dbxAccount: DropboxAccount = {
       accessToken,
       uid,
       accountId
     }
-
-    saveDbxAccount(dbxAccount)
+    const { saveDbxAccount } = actions
+    this.props.dispatch(saveDbxAccount(dbxAccount))
   }
 
   componentDidMount () {
     setTimeout(() => {
-      this.props.redirect('/sr')
+      this.props.dispatch(push('/sr'))
     }, 4000)
   }
 
@@ -48,18 +47,5 @@ class SuccessCallback extends React.Component<Props,{}> {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    ...bindActionCreators({ saveDbxAccount }, dispatch),
-    redirect (url) {
-      return dispatch(push(url))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SuccessCallback)
+const mapStateToProps = (state: RootState, ownProps: Props) => ({})
+export default connect(mapStateToProps, null)(SuccessCallback)
