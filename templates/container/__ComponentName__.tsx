@@ -5,20 +5,17 @@ import { ConnectedReduxProps } from '~lib/actionHelper'
 import { connect } from 'react-redux'
 // import { bindActionCreators } from 'redux'
 import CompStyles from './styles'
+import { RootState } from '~config/rootReducer'
 
 interface Props extends ConnectedReduxProps<{}> {
 
 }
-interface State {
-
-}
-
-class __ComponentName__ extends React.Component<Props, State> {
+class __ComponentName__ extends React.Component<Props, {}> {
   static displayName = '__ComponentName__'
 
   render () {
     return (
-      <CompStyles className = "__ComponentName__">
+      <CompStyles className="__ComponentName__">
         __ComponentName__
       </CompStyles >
     )
@@ -26,15 +23,6 @@ class __ComponentName__ extends React.Component<Props, State> {
 
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = state: RootState => ({  })
 
-})
-
-const mapDispatchToProps = dispatch => ({
-  // actions: bindActionCreators({ **actionCreatorFunc** }, dispatch)
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(__ComponentName__)
+export default connect(mapStateToProps)(__ComponentName__)

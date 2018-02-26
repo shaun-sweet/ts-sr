@@ -16,7 +16,7 @@ export default class SaladRabbitAuthedAppContainer extends React.Component<Props
     return (
       <CompStyles className="Home">
         <SideBar />
-        <SaladRabbitViewOutlet>Yay</SaladRabbitViewOutlet>
+        <SaladRabbitViewOutlet />
       </CompStyles>
     )
   }

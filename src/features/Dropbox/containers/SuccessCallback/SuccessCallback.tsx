@@ -1,16 +1,19 @@
 import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import CompStyles from './styles'
 import { object, func } from 'prop-types'
-import { actions } from '../redux/actions'
+import { actions } from '../../redux/actions'
 import { Spin } from 'antd'
 import { push } from 'react-router-redux'
 import { ConnectedReduxProps } from '~lib/actionHelper'
 import { DropboxAccount } from 'features/Dropbox/redux'
 import { RootState } from 'config/rootReducer'
 
-interface Props extends ConnectedReduxProps<{}> {}
-class SuccessCallback extends React.Component<Props,{}> {
+interface Props extends ConnectedReduxProps<{}> { }
+
+class SuccessCallback extends React.Component<Props, {}> {
+  static displayName = 'SuccessCallback'
 
   componentWillMount () {
     // eslint-disable-next-line
@@ -35,16 +38,17 @@ class SuccessCallback extends React.Component<Props,{}> {
 
   render () {
     return (
-      <div className="login-success">
+      <CompStyles className="SuccessCallback login-success">
         <h1 className="title">Salad Rabbit</h1>
         <Spin
           tip="Loading your treasures"
           size="large"
           wrapperClassName="login-success"
         />
-      </div>
+      </CompStyles >
     )
   }
+
 }
 
 const mapStateToProps = (state: RootState, ownProps: Props) => ({})

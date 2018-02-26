@@ -3,8 +3,9 @@ import {
   Route
 } from 'react-router-dom'
 import CompStyles from './styles'
-import { DBoxLandingPage, SuccessCallback } from '../../../Dropbox/pages'
-import SaladRabbitAuthedAppContainer from '~features/common/pages/SaladRabbitAuthedAppContainerPage'
+import SuccessCallback from '~features/Dropbox/containers/SuccessCallback'
+import DBoxLandingPage from '~features/Dropbox/containers/LandingPage'
+import SaladRabbitAuthedAppContainer from '~features/common/containers/SaladRabbitAuthedAppContainerPage'
 import { Routes } from 'config/routeConstants'
 
 /** Main page layout */
@@ -20,7 +21,7 @@ export default class Layout extends React.Component {
           <main>
             <Route exact path={Routes.Root} component={DBoxLandingPage} />
             <Route path={Routes.SuccessCallback} component={SuccessCallback} />
-            <Route path={Routes.SaladRabbitAuthedAppContainerPage} component={SaladRabbitAuthedAppContainer} />
+            <Route path={Routes.SaladRabbit} component={SaladRabbitAuthedAppContainer} />
           </main>
         </div>
         <footer>

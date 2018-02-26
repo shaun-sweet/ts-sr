@@ -21,10 +21,6 @@ const CompStyles = styled.div`
     height: 100%;
     width: 100%;
 
-    & > .dbx-landing .title {
-      margin-bottom: 2em;
-    }
-
     & > .login-success {
       display: flex;
       flex-flow: column;
