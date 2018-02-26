@@ -36,12 +36,6 @@ export namespace SaladRabbitTypes {
     categories: Array<Category['uid']>
   }
 
-  interface Test {
-    accounts: {
-      byClosed: uid[]
-    }
-  }
-
   export interface Entities {
     accounts: {
       [AccountUID: string]: Account
