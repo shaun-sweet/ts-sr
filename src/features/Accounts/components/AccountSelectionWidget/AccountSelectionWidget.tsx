@@ -1,7 +1,7 @@
 import * as React from 'react'
 // import propTypes from 'prop-types'
 // import { push } from 'react-router-redux'
-import { ConnectedReduxProps } from '~lib/actionHelper'
+import { ConnectedReduxProps } from 'lib/actionHelper'
 import { connect } from 'react-redux'
 // import { bindActionCreators } from 'redux'
 import CompStyles from './styles'

@@ -8,9 +8,7 @@
     "moduleResolution": "node",
     "baseUrl": "src",
     "paths": {
-      "~lib/*": ["lib/*"],
-      "~components/*": [ "features/common/components/*" ],
-      "~features/*": [ "features/*" ]
+      "~components/*": [ "features/common/components/*" ]
     }
   },
   "exclude": ["node_modules", "templates"]

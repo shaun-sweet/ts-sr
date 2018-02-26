@@ -10,13 +10,13 @@ import { RootState } from 'config/rootReducer'
 interface Props extends ConnectedReduxProps<{}> {
 
 }
-class __ComponentName__ extends React.Component<Props, {}> {
-  static displayName = '__ComponentName__'
+class AccountsView extends React.Component<Props, {}> {
+  static displayName = 'AccountsView'
 
   render () {
     return (
-      <CompStyles className="__ComponentName__">
-        __ComponentName__
+      <CompStyles className="AccountsView">
+        AccountsView
       </CompStyles >
     )
   }
@@ -25,4 +25,4 @@ class __ComponentName__ extends React.Component<Props, {}> {
 
 const mapStateToProps = (state: RootState) => ({})
 
-export default connect(mapStateToProps)(__ComponentName__)
+export default connect(mapStateToProps)(AccountsView)

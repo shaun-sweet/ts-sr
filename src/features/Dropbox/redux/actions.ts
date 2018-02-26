@@ -1,4 +1,4 @@
-import { createAction, ActionsUnion } from '~lib/actionHelper'
+import { createAction, ActionsUnion } from 'lib/actionHelper'
 import { DropboxAccount } from './types'
 
 export const SAVE_DBX_ACCOUNT = '[dropbox] SAVE_DBX_ACCOUNT'

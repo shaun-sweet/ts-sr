@@ -6,9 +6,10 @@ import { object, func } from 'prop-types'
 import { actions } from '../../redux/actions'
 import { Spin } from 'antd'
 import { push } from 'react-router-redux'
-import { ConnectedReduxProps } from '~lib/actionHelper'
+import { ConnectedReduxProps } from 'lib/actionHelper'
 import { DropboxAccount } from 'features/Dropbox/redux'
 import { RootState } from 'config/rootReducer'
+import { Paths } from 'config/routeConfig'
 
 interface Props extends ConnectedReduxProps<{}> { }
 
@@ -32,7 +33,7 @@ class SuccessCallback extends React.Component<Props, {}> {
 
   componentDidMount () {
     setTimeout(() => {
-      this.props.dispatch(push('/sr'))
+      this.props.dispatch(push(Paths.SaladRabbit))
     }, 4000)
   }
 

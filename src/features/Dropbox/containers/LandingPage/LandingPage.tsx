@@ -3,11 +3,11 @@ import { Dropbox } from 'dropbox'
 import CompStyles from './styles'
 import { Button } from 'antd'
 import { RootState } from 'config/rootReducer'
-import { isDropboxAuthed } from '~features/Dropbox/redux/selectors'
-import { ConnectedReduxProps } from '~lib/actionHelper'
+import { isDropboxAuthed } from 'features/Dropbox/redux/selectors'
+import { ConnectedReduxProps } from 'lib/actionHelper'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
-import { Routes } from 'config/routeConstants'
+import { Paths } from 'config/routeConfig'
 
 interface Props extends ConnectedReduxProps<{}> {
   isDropboxAuthed: Boolean
@@ -28,7 +28,7 @@ class DBoxLandingPage extends React.Component<Props, {}> {
 
   componentDidMount () {
     return this.props.isDropboxAuthed
-      ? this.props.dispatch(push(Routes.SuccessCallback))
+      ? this.props.dispatch(push(Paths.SuccessCallback))
       : false
   }
 
