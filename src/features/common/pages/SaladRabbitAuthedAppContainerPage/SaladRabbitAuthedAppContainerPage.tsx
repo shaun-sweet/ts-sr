@@ -1,7 +1,7 @@
 import * as React from 'react'
 import CompStyles from './styles'
 import SaladRabbitViewOutlet from '~components/SaladRabbitViewOutlet'
-import SideBar from '~components/SideBar'
+import SideBar from '~features/common/containers/SideBar'
 interface Props {
 
 }
@@ -15,7 +15,7 @@ export default class SaladRabbitAuthedAppContainer extends React.Component<Props
   render () {
     return (
       <CompStyles className="Home">
-        <SideBar>Side Bar!!</SideBar>
+        <SideBar />
         <SaladRabbitViewOutlet>Yay</SaladRabbitViewOutlet>
       </CompStyles>
     )

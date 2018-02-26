@@ -48,4 +48,4 @@ class SuccessCallback extends React.Component<Props,{}> {
 }
 
 const mapStateToProps = (state: RootState, ownProps: Props) => ({})
-export default connect(mapStateToProps, null)(SuccessCallback)
+export default connect(mapStateToProps)(SuccessCallback)

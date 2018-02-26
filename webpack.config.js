@@ -7,7 +7,7 @@ const autoprefixer = require('autoprefixer')
 const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = Path.join(__dirname, './dist');
 const sourcePath = Path.join(__dirname, './src');
-const alias = require('./alias')
+const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
   context: sourcePath,
@@ -29,7 +29,9 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    alias,
+    plugins: [
+      new TsConfigPathsPlugin( { configFileName: './tsconfig.json' } )
+    ],
     extensions: ['.js', '.ts', '.tsx'],
     // Fix webpack's default behavior to not load packages with jsnext:main module
     // https://github.com/Microsoft/TypeScript/issues/11677

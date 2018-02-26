@@ -5,6 +5,7 @@ import {
 import CompStyles from './styles'
 import { DBoxLandingPage, SuccessCallback } from '../../../Dropbox/pages'
 import SaladRabbitAuthedAppContainer from '~features/common/pages/SaladRabbitAuthedAppContainerPage'
+import { Routes } from 'config/routeConstants'
 
 /** Main page layout */
 export default class Layout extends React.Component {
@@ -17,10 +18,9 @@ export default class Layout extends React.Component {
             <nav />
           </header>
           <main>
-            yay
-            <Route exact path="/" component={DBoxLandingPage} />
-            <Route path="/auth" component={SuccessCallback} />
-            <Route path="/sr" component={SaladRabbitAuthedAppContainer} />
+            <Route exact path={Routes.Root} component={DBoxLandingPage} />
+            <Route path={Routes.SuccessCallback} component={SuccessCallback} />
+            <Route path={Routes.SaladRabbitAuthedAppContainerPage} component={SaladRabbitAuthedAppContainer} />
           </main>
         </div>
         <footer>

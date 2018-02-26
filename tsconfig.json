@@ -3,6 +3,7 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "jsx": "react",
+    "preserveConstEnums": false,
     "module": "commonjs",
     "moduleResolution": "node",
     "baseUrl": "src",
