@@ -5,7 +5,7 @@ import {
 import CompStyles from './styles'
 import SuccessCallback from '~features/Dropbox/containers/SuccessCallback'
 import DBoxLandingPage from '~features/Dropbox/containers/LandingPage'
-import SaladRabbitAuthedAppContainer from '~features/common/containers/SaladRabbitAuthedAppContainerPage'
+import SaladRabbit from '~features/common/containers/SaladRabbit'
 import { Routes } from 'config/routeConstants'
 
 /** Main page layout */
@@ -21,7 +21,7 @@ export default class Layout extends React.Component {
           <main>
             <Route exact path={Routes.Root} component={DBoxLandingPage} />
             <Route path={Routes.SuccessCallback} component={SuccessCallback} />
-            <Route path={Routes.SaladRabbit} component={SaladRabbitAuthedAppContainer} />
+            <Route path={Routes.SaladRabbit} component={SaladRabbit} />
           </main>
         </div>
         <footer>
