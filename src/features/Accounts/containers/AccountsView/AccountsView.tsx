@@ -1,19 +1,17 @@
 import * as React from 'react'
-// import propTypes from 'prop-types'
-// import { push } from 'react-router-redux'
+import { push } from 'react-router-redux'
 import { ConnectedReduxProps } from 'lib/actionHelper'
 import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
+import { RouteComponentProps } from 'react-router'
 import CompStyles from './styles'
 import { RootState } from 'config/rootReducer'
-
-interface Props extends ConnectedReduxProps<{}> {
-
-}
-class AccountsView extends React.Component<Props, {}> {
+import { v1 } from 'uuid/interfaces'
+interface Props extends ConnectedReduxProps<{}> {}
+class AccountsView extends React.Component<Props & RouteComponentProps<{}>, {}> {
   static displayName = 'AccountsView'
 
   render () {
+
     return (
       <CompStyles className="AccountsView">
         AccountsView
@@ -23,6 +21,6 @@ class AccountsView extends React.Component<Props, {}> {
 
 }
 
-const mapStateToProps = (state: RootState) => ({})
+const mapStateToProps = (state: RootState) => ({ })
 
 export default connect(mapStateToProps)(AccountsView)
