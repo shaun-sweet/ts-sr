@@ -20,14 +20,6 @@ const CompStyles = styled.div`
     align-items: center;
     height: 100%;
     width: 100%;
-
-    & > .login-success {
-      display: flex;
-      flex-flow: column;
-      .ant-spin {
-        margin-top: 10em;
-      }
-    }
   }
 
 `
