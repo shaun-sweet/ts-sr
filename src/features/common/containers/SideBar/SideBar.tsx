@@ -1,5 +1,5 @@
 import * as React from 'react'
-import CompStyles from './styles'
+import Styles from './styles'
 import { Menu, Icon, Popover, Form, Input, Button, Checkbox } from 'antd'
 import NewAccount from '~components/NewAccount'
 const SubMenu = Menu.SubMenu
@@ -25,7 +25,7 @@ export default class SideBar extends React.Component<Props, State> {
 
   render () {
     return (
-      <CompStyles className="SideBar">
+      <Styles className="SideBar">
         <Menu
           onClick={this.handleClick}
           defaultSelectedKeys={['1']}
@@ -41,7 +41,7 @@ export default class SideBar extends React.Component<Props, State> {
 
         <NewAccount labelText="New Account" handleSubmit={() => null} />
 
-      </CompStyles>
+      </Styles>
     )
   }
 }
