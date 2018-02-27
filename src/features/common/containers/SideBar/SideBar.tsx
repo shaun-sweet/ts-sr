@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Styles from './styles'
 import { Menu, Icon, Popover, Form, Input, Button, Checkbox } from 'antd'
-import NewAccount from '~components/NewAccount'
+import NewAccountButton from '~components/NewAccountButton'
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
 const FormItem = Form.Item
@@ -39,7 +39,7 @@ export default class SideBar extends React.Component<Props, State> {
           </SubMenu>
         </Menu>
 
-        <NewAccount labelText="New Account" handleSubmit={() => null} />
+        <NewAccountButton labelText="New Account" handleSubmit={() => null} />
 
       </Styles>
     )
