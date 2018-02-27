@@ -5,7 +5,7 @@ import NewAccountForm from '~components/NewAccountForm'
 interface Props {
   labelText: string, // text on button
   icon?: string,
-  handleSubmit: Function
+  handleSubmit: () => void // callback to add the account
 }
 
 export default class NewAccountButton extends React.Component<Props, {}> {
