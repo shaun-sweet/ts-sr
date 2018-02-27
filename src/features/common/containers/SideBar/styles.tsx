@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CompStyles = styled.div`
+const ComponentStyles = styled.div`
 `
 
-export default CompStyles
+export default ComponentStyles

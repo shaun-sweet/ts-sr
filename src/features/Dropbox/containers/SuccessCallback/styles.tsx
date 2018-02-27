@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CompStyles = styled.div`
+const ComponentStyles = styled.div`
   display: flex;
   flex-flow: column;
   .ant-spin {
@@ -8,4 +8,4 @@ const CompStyles = styled.div`
   }
 `
 
-export default CompStyles
+export default ComponentStyles

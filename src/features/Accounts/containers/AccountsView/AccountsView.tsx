@@ -3,7 +3,7 @@ import { push } from 'react-router-redux'
 import { ConnectedReduxProps } from 'lib/actionHelper'
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router'
-import CompStyles from './styles'
+import Styles from './styles'
 import { RootState } from 'config/rootReducer'
 import { v1 } from 'uuid/interfaces'
 interface Props extends ConnectedReduxProps<{}> {}
@@ -13,9 +13,9 @@ class AccountsView extends React.Component<Props & RouteComponentProps<{}>, {}> 
   render () {
 
     return (
-      <CompStyles className="AccountsView">
+      <Styles className="AccountsView">
         AccountsView
-      </CompStyles >
+      </Styles >
     )
   }
 

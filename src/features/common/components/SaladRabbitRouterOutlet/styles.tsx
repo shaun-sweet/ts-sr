@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-const CompStyles = styled.div`
+const ComponentStyles = styled.div`
   flex: 10;
   padding: 1em;
 `
 
-export default CompStyles
+export default ComponentStyles

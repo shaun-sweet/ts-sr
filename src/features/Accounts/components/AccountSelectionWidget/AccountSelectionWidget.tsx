@@ -1,22 +1,19 @@
 import * as React from 'react'
 import { ConnectedReduxProps } from 'lib/actionHelper'
 import { connect } from 'react-redux'
-import CompStyles from './styles'
+import Styles from './styles'
 
 interface Props extends ConnectedReduxProps<{}> {
 
 }
-interface State {
 
-}
-
-class AccountSelectionWidget extends React.Component<Props, State> {
+class AccountSelectionWidget extends React.Component<Props, {} > {
   static displayName = 'AccountSelectionWidget'
 
   render () {
     return (
-      <CompStyles className="AccountSelectionWidget">
-      </CompStyles >
+      <Styles className="AccountSelectionWidget">
+      </Styles >
     )
   }
 

@@ -4,20 +4,20 @@ import * as React from 'react'
 import { ConnectedReduxProps } from 'lib/actionHelper'
 import { connect } from 'react-redux'
 // import { bindActionCreators } from 'redux'
-import CompStyles from './styles'
+import Styles from './styles'
 import { RootState } from 'config/rootReducer'
 
-interface Props extends ConnectedReduxProps<{}> {
+interface OwnProps extends ConnectedReduxProps<{}> {
 
 }
-class __ComponentName__ extends React.Component<Props, {}> {
+class __ComponentName__ extends React.Component<OwnProps, {}> {
   static displayName = '__ComponentName__'
 
   render () {
     return (
-      <CompStyles className="__ComponentName__">
+      <Styles className="__ComponentName__">
         __ComponentName__
-      </CompStyles >
+      </Styles >
     )
   }
 

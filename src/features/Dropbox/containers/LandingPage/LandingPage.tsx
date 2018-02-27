@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dropbox } from 'dropbox'
-import CompStyles from './styles'
+import Styles from './styles'
 import { Button } from 'antd'
 import { RootState } from 'config/rootReducer'
 import { isDropboxAuthed } from 'features/Dropbox/redux/selectors'
@@ -34,12 +34,12 @@ class DBoxLandingPage extends React.Component<Props, {}> {
 
   render () {
     return (
-      <CompStyles className="dbx-landing">
+      <Styles className="dbx-landing">
         <h1 className="title">Salad Rabbit</h1>
         <a href={this.authUrl}>
           <Button type="primary">Login to Dropbox</Button>
         </a>
-      </CompStyles >
+      </Styles>
     )
   }
 

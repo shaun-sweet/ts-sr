@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import CompStyles from './styles'
+import Styles from './styles'
 import { object, func } from 'prop-types'
 import { actions } from '../../redux/actions'
 import { Spin } from 'antd'
@@ -39,14 +39,14 @@ class SuccessCallback extends React.Component<Props, {}> {
 
   render () {
     return (
-      <CompStyles className="SuccessCallback login-success">
+      <Styles className="SuccessCallback login-success">
         <h1 className="title">Salad Rabbit</h1>
         <Spin
           tip="Loading your treasures"
           size="large"
           wrapperClassName="login-success"
         />
-      </CompStyles >
+      </Styles >
     )
   }
 

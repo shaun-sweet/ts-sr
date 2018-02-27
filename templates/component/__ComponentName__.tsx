@@ -1,21 +1,16 @@
 import * as React from 'react'
-import CompStyles from './styles'
+import Styles from './styles'
 
-interface Props {
-
-}
-interface State {
+interface OwnProps {
 
 }
-
-export default class __ComponentName__ extends React.Component<Props, State> {
-  static displayName = '__ComponentName__'
-
-  render () {
-    return (
-      <CompStyles className="__ComponentName__">
-        __ComponentName__
-      </CompStyles>
-    )
-  }
+const __ComponentName__ = (props: OwnProps) => {
+  return (
+    <Styles className="__ComponentName__">
+      __ComponentName__
+    </Styles>
+  )
 }
+
+__ComponentName__.displayName = '__ComponentName__'
+export default __ComponentName__

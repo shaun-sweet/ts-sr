@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Route } from 'react-router-dom'
-import CompStyles from './styles'
+import Styles from './styles'
 import SuccessCallback from 'features/Dropbox/containers/SuccessCallback'
 import DBoxLandingPage from 'features/Dropbox/containers/LandingPage'
 import SaladRabbit from 'features/common/containers/SaladRabbit'
@@ -10,7 +10,7 @@ export default class Layout extends React.Component {
 
   render () {
     return (
-      <CompStyles className="root-layout">
+      <Styles className="root-layout">
         <div className="container">
           <header>
             <nav />
@@ -25,7 +25,7 @@ export default class Layout extends React.Component {
         <footer>
           This is a footer
       </footer>
-      </CompStyles>
+      </Styles>
     )
   }
 }

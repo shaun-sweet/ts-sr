@@ -1,9 +1,14 @@
 import * as React from 'react'
 import CompStyles from './styles'
-import { Menu, Icon } from 'antd'
+import { Menu, Icon, Popover, Form, Input, Button, Checkbox } from 'antd'
+import NewAccount from '~components/NewAccount'
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
-
+const FormItem = Form.Item
+const formItemLayout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 8 }
+}
 interface Props {
 
 }
@@ -33,6 +38,9 @@ export default class SideBar extends React.Component<Props, State> {
             <Menu.Item key="6">Savings</Menu.Item>
           </SubMenu>
         </Menu>
+
+        <NewAccount labelText="New Account" handleSubmit={() => null} />
+
       </CompStyles>
     )
   }
