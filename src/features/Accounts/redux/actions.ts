@@ -1,6 +1,5 @@
 import { createAction, ActionsUnion } from 'lib/actionHelper'
-import { SaladRabbitTypes } from 'types'
-type Account = SaladRabbitTypes.Account
+import { Account } from 'types'
 
 export const SAVE_SALAD_RABBIT_ACCOUNT = '[accounts] SAVE_SALAD_RABBIT_ACCOUNT'
 export const CLOSE_SALAD_RABBIT_ACCOUNT = '[accounts] CLOSE_SALAD_RABBIT_ACCOUNT'

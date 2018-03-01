@@ -1,7 +1,10 @@
 import * as React from 'react'
 import Styles from './styles'
+import { connect, Dispatch } from 'react-redux'
 import { Menu, Icon, Popover, Form, Input, Button, Checkbox } from 'antd'
-import NewAccountButton from '~components/NewAccountButton'
+import NewAccountButton from 'features/Accounts/components/NewAccountButton'
+import { Account } from 'types'
+import { actions } from 'features/Accounts/redux/actions'
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
 const FormItem = Form.Item
@@ -10,15 +13,21 @@ const formItemLayout = {
   wrapperCol: { span: 8 }
 }
 interface Props {
-
+  dispatch?: (actionCreator) => void
 }
 interface State {
-
+  visible: boolean
 }
 
-export default class SideBar extends React.Component<Props, State> {
+class SideBar extends React.Component<Props, State> {
   static displayName = 'SideBar'
+  state = {
+    visible: false
+  }
 
+  hide = () => this.setState({ visible: false })
+  handleVisibleChange = (visible) => this.setState({ visible })
+  handleAddNewAccount = (newAccount: Account) => this.props.dispatch(actions.saveAccount(newAccount))
   handleClick = (e) => {
     console.log('click ', e)
   }
@@ -39,9 +48,17 @@ export default class SideBar extends React.Component<Props, State> {
           </SubMenu>
         </Menu>
 
-        <NewAccountButton labelText="New Account" handleSubmit={() => null} />
+        <NewAccountButton
+          handleSubmit={this.handleAddNewAccount}
+          handleVisibleChange={this.handleVisibleChange}
+          visible={this.state.visible}
+          labelText="New Account"
+        />
 
       </Styles>
     )
   }
 }
+const mapStateToProps = state => ({})
+const mapDispatchToProps = (dispatch) => ({})
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar)

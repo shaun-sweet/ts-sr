@@ -1,6 +1,6 @@
 import * as fromActions from './actions'
-import { SaladRabbitTypes } from 'types'
-type AccountsEntity = SaladRabbitTypes.Entities['accounts']
+import { Entities } from 'types'
+type AccountsEntity = Entities['accounts']
 type AccountActions = fromActions.Actions
 const initialState: AccountsEntity = {}
 
