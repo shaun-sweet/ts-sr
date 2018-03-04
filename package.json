@@ -58,7 +58,7 @@
     "typescript": "2.8.0-dev.20180224",
     "url-loader": "0.6.2",
     "webpack": "3.11.0",
-    "webpack-dev-server": "2.11.1"
+    "webpack-dev-server": "2.11.2"
   },
   "dependencies": {
     "@types/uuid": "3.4.3",
