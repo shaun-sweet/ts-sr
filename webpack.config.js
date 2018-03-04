@@ -12,7 +12,7 @@ const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 module.exports = {
   context: sourcePath,
   entry: {
-    main: ['react-hot-loader/patch', './index.tsx'],
+    main: ['./index.tsx'],
     vendor: [
       'react',
       'react-dom',
@@ -43,11 +43,11 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: isProduction
-          ? 'awesome-typescript-loader?module=es5'
-          : [
-            'react-hot-loader/webpack',
-            'awesome-typescript-loader'
-          ]
+        ? 'awesome-typescript-loader?module=es5'
+        : [
+          'awesome-typescript-loader'
+        ],
+        include: Path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,

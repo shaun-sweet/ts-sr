@@ -49,7 +49,6 @@ class SideBar extends React.Component<Props, State> {
             <Menu.Item key="6">Savings</Menu.Item>
           </SubMenu>
         </Menu>
-
         <NewAccountButton
           handleAddNewAccount={this.handleAddNewAccount}
           handleVisibleChange={this.handleVisibleChange}
