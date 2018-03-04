@@ -2,25 +2,37 @@ import * as React from 'react'
 import Styles from './styles'
 import { Input, Form, Icon, Select, Checkbox, Button, Radio } from 'antd'
 import { FormComponentProps } from 'antd/lib/form/Form'
+import { Account } from 'types'
+const moment = require('moment')
+const uuidv1 = require('uuid/v1')
 
 const Option = Select.Option
 
-function handleChange (value) {
-  console.log(`selected ${value}`)
+function makeAccount (formValues): Account {
+  const { name, balance, type } = formValues
+  return {
+    uid: uuidv1(),
+    name,
+    balance,
+    type,
+    isClosed: false,
+    createdAt: moment().format()
+  }
 }
 
 const RadioGroup = Radio.Group
 const FormItem = Form.Item
-interface OwnProps extends FormComponentProps {handleSubmit: any }
+interface OwnProps extends FormComponentProps {
+  handleAddNewAccount: (newAccount: Account) => void
+}
 const NewAccountForm: React.StatelessComponent<OwnProps> = (props) => {
   const { getFieldDecorator } = props.form
-  console.log(props.form.getFieldsValue())
 
   return (
     <Styles className="NewAccountForm">
-      <Form onSubmit={this.props.handleSubmit} layout="vertical" className="login-form">
+      <Form layout="vertical" className="login-form">
         <FormItem label="Account Name">
-          {getFieldDecorator('accountName', {
+          {getFieldDecorator('name', {
             rules: [{ required: true, message: 'Account name required!' }]
           })(
             <Input prefix={<Icon type="credit-card" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="e.g. 'Primary Checking'" />
@@ -36,7 +48,7 @@ const NewAccountForm: React.StatelessComponent<OwnProps> = (props) => {
         </FormItem>
         <br />
         <FormItem>
-          {getFieldDecorator('account', {
+          {getFieldDecorator('type', {
             valuePropName: 'checked',
             initialValue: 'checking'
           })(
@@ -45,7 +57,7 @@ const NewAccountForm: React.StatelessComponent<OwnProps> = (props) => {
               <Radio value={'saving'}>Savings</Radio>
             </RadioGroup>
           )}
-          <Button onClick={this.props.handleSubmit} type="primary" htmlType="submit" className="save-button">
+          <Button onClick={(e) => props.handleAddNewAccount(makeAccount(props.form.getFieldsValue()))} type="primary" htmlType="submit" className="save-button">
             Add New Account
           </Button>
         </FormItem>
@@ -56,4 +68,4 @@ const NewAccountForm: React.StatelessComponent<OwnProps> = (props) => {
 
 NewAccountForm.displayName = 'NewAccountForm'
 
-export default Form.create()(NewAccountForm)
+export default Form.create<OwnProps>()(NewAccountForm)

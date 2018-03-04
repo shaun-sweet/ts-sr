@@ -3,15 +3,16 @@ import * as moment from 'moment'
 type uid = ReturnType<v1String>  // unique id
 interface Timestamps {
   createdAt: moment.Moment,
-  lastUpdatedAt: moment.Moment
+  lastUpdatedAt?: moment.Moment
 }
 
 export interface Account extends Timestamps {
   uid: string,
-  displayName: string,
+  name: string,
   balance: number,
   isClosed: boolean,
-  transactions: Array<Transaction['uid']>,
+  type: 'checking' | 'saving'
+  transactions?: Array<Transaction['uid']>,
 }
 
 export interface Transaction extends Timestamps {
@@ -25,13 +26,13 @@ export interface Transaction extends Timestamps {
 
 export interface Category {
   uid: uid,
-  displayName: string,
+  name: string,
   masterCategory: MasterCategory['uid']
 }
 
 export interface MasterCategory extends Timestamps {
   uid: uid,
-  displayName: string,
+  name: string,
   categories: Array<Category['uid']>
 }
 

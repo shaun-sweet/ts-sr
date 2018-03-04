@@ -27,7 +27,9 @@ class SideBar extends React.Component<Props, State> {
 
   hide = () => this.setState({ visible: false })
   handleVisibleChange = (visible) => this.setState({ visible })
-  handleAddNewAccount = (newAccount: Account) => this.props.dispatch(actions.saveAccount(newAccount))
+  handleAddNewAccount = (newAccount: Account) => {
+    this.props.dispatch(actions.saveAccount(newAccount))
+  }
   handleClick = (e) => {
     console.log('click ', e)
   }
@@ -49,7 +51,7 @@ class SideBar extends React.Component<Props, State> {
         </Menu>
 
         <NewAccountButton
-          handleSubmit={this.handleAddNewAccount}
+          handleAddNewAccount={this.handleAddNewAccount}
           handleVisibleChange={this.handleVisibleChange}
           visible={this.state.visible}
           labelText="New Account"
@@ -60,5 +62,4 @@ class SideBar extends React.Component<Props, State> {
   }
 }
 const mapStateToProps = state => ({})
-const mapDispatchToProps = (dispatch) => ({})
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar)
+export default connect(mapStateToProps, null)(SideBar)
