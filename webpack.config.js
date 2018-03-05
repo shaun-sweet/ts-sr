@@ -2,18 +2,17 @@ require('dotenv')
 const Webpack = require('webpack');
 const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer')
 const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = Path.join(__dirname, './dist');
-const uuidv1 = require('uuid')
-const sourcePath = Path.join(__dirname, './src');
-const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
+const tsImportPluginFactory = require('ts-import-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const sourcePath = Path.join(__dirname);
 
 module.exports = {
   context: sourcePath,
   entry: {
-    main: ['./index.tsx'],
+    main: ['./src/index.tsx'],
     vendor: [
       'react',
       'react-dom',
@@ -26,30 +25,46 @@ module.exports = {
   output: {
     path: outPath,
     publicPath: '/',
-    filename: `${uuidv1()}-[name].js`,
+    filename: `[name].js`,
   },
   target: 'web',
   resolve: {
-    plugins: [
-      new TsConfigPathsPlugin( { configFileName: './tsconfig.json' } )
-    ],
+    plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
     extensions: ['.js', '.ts', '.tsx'],
     // Fix webpack's default behavior to not load packages with jsnext:main module
     // https://github.com/Microsoft/TypeScript/issues/11677
-    mainFields: ['browser', 'main'],
+    mainFields: ['browser', 'main']
   },
   module: {
     rules: [
-      // .ts, .tsx
       {
-        test: /\.tsx?$/,
-        use: isProduction
-        ? 'awesome-typescript-loader?module=es5'
-        : [
-          'awesome-typescript-loader'
-        ],
-        include: Path.join(__dirname, 'src'),
+        test: /\.(jsx|tsx|js|ts)$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [tsImportPluginFactory({
+              libraryName: 'antd',
+              libraryDirectory: 'es',
+              style: 'css',
+            })]
+          }),
+          compilerOptions: {
+            module: 'es2015'
+          }
+        },
+        exclude: /node_modules/
       },
+      // .ts, .tsx
+      // {
+      //   test: /\.tsx?$/,
+      //   use: isProduction
+      //   ? 'awesome-typescript-loader?module=es5'
+      //   : [
+      //     'awesome-typescript-loader'
+      //   ],
+      //   include: Path.join(__dirname, 'src'),
+      // },
       {
         test: /\.css$/,
         use: [
@@ -105,8 +120,10 @@ module.exports = {
       'process.env.NODE_ENV': isProduction === true ? JSON.stringify('production') : JSON.stringify('development')
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: './index.html'
+      template: 'src/index.html',
+      filename: 'index.html',
+      hash: true,
+
     })
   ],
   devServer: {
