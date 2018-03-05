@@ -2256,9 +2256,9 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
-dropbox@3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/dropbox/-/dropbox-3.0.5.tgz#c2e82c99c35c47b699c1761c407854750690772b"
+dropbox@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dropbox/-/dropbox-4.0.0.tgz#eb7660f0c9f51da073ceb474563114f4545fbbef"
   dependencies:
     buffer "^5.0.8"
 
