@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer')
 const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = Path.join(__dirname, './dist');
+const uuidv1 = require('uuid')
 const sourcePath = Path.join(__dirname, './src');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
@@ -25,7 +26,7 @@ module.exports = {
   output: {
     path: outPath,
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: `${uuidv1()}-[name].js`,
   },
   target: 'web',
   resolve: {
@@ -38,7 +39,7 @@ module.exports = {
     mainFields: ['browser', 'main'],
   },
   module: {
-    loaders: [
+    rules: [
       // .ts, .tsx
       {
         test: /\.tsx?$/,
@@ -87,23 +88,25 @@ module.exports = {
       { test: /\.jpg$/, use: 'file-loader' },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
+  },
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': require('./config.js'),
       'process.env.NODE_ENV': isProduction === true ? JSON.stringify('production') : JSON.stringify('development')
     }),
-    new Webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.bundle.js',
-      minChunks: Infinity
-    }),
-    new Webpack.optimize.AggressiveMergingPlugin(),
-    new ExtractTextPlugin({
-      filename: 'styles.css',
-      disable: !isProduction
-    }),
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: './index.html',
+      filename: './index.html'
     })
   ],
   devServer: {
