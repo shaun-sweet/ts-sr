@@ -83,9 +83,9 @@
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.2.tgz#c290b99dbef74df21b06671aea36e355bf3b27e1"
 
-"@types/webpack@3.8.9":
-  version "3.8.9"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-3.8.9.tgz#c420c9428ba18e20e4fe8eff7bee4d04bace9182"
+"@types/webpack@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.0.0.tgz#c989df16d3fb6024491e35a51d38c513dca8d7f5"
   dependencies:
     "@types/node" "*"
     "@types/tapable" "*"
