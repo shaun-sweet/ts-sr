@@ -10,8 +10,10 @@ import { ConnectedReduxProps } from 'lib/actionHelper'
 import { DropboxAccount } from 'features/Dropbox/redux'
 import { RootState } from 'config/rootReducer'
 import { Paths, SaladRabbitRootPath } from 'config/routeConfig'
+import DropboxClient from 'lib/Dropbox'
+import { Dropbox } from 'dropbox/src'
 
-interface Props extends ConnectedReduxProps<{}> { }
+interface Props extends ConnectedReduxProps<{}> { accessToken: string }
 
 class SuccessCallback extends React.Component<Props, {}> {
   static displayName = 'SuccessCallback'
@@ -28,7 +30,13 @@ class SuccessCallback extends React.Component<Props, {}> {
       accountId
     }
     const { saveDbxAccount } = actions
-    this.props.dispatch(saveDbxAccount(dbxAccount))
+    const dbx = new DropboxClient(new Dropbox({ accessToken: this.props.accessToken }))
+    dbx.bootstrapEnvironment()
+    dbx.showFiles()
+     .then(console.log)
+    if (Boolean(dbxAccount.accessToken)) {
+      this.props.dispatch(saveDbxAccount(dbxAccount))
+    }
   }
 
   componentDidMount () {
@@ -52,5 +60,5 @@ class SuccessCallback extends React.Component<Props, {}> {
 
 }
 
-const mapStateToProps = (state: RootState, ownProps: Props) => ({})
+const mapStateToProps = (state: RootState, ownProps: Props) => ({ accessToken: state.dropbox.accessToken })
 export default connect(mapStateToProps)(SuccessCallback)
