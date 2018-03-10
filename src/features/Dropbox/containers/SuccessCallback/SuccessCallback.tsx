@@ -10,30 +10,25 @@ import { ConnectedReduxProps } from 'lib/actionHelper'
 import { DropboxAccount } from 'features/Dropbox/redux'
 import { RootState } from 'config/rootReducer'
 import { Paths, SaladRabbitRootPath } from 'config/routeConfig'
-import DropboxClient from 'lib/Dropbox'
+import { DropboxWrapper } from 'lib/Dropbox'
 import { Dropbox } from 'dropbox/src'
+import { getDbxClient } from '../../redux/selectors'
 
-interface Props extends ConnectedReduxProps<{}> { accessToken: string }
+interface Props extends ConnectedReduxProps<{}> {}
 
 class SuccessCallback extends React.Component<Props, {}> {
   static displayName = 'SuccessCallback'
 
   componentWillMount () {
-    // eslint-disable-next-line
-    const urlParams = new URLSearchParams(window.location.hash.slice(1)) // theres a hash instead of a ? so slice removes it
-    const accessToken = urlParams.get('access_token')
-    const uid = urlParams.get('uid')
-    const accountId = urlParams.get('account_id')
-    const dbxAccount: DropboxAccount = {
-      accessToken,
-      uid,
-      accountId
-    }
     const { saveDbxAccount } = actions
-    const dbx = new DropboxClient(new Dropbox({ accessToken: this.props.accessToken }))
-    dbx.bootstrapEnvironment()
-    dbx.showFiles()
-     .then(console.log)
+    // @ts-ignore
+    const urlParams = new URLSearchParams(window.location.hash.slice(1)) // theres a hash instead of a ? so slice removes it
+    const dbxAccount: DropboxAccount = {
+      accessToken: urlParams.get('access_token'),
+      uid: urlParams.get('uid'),
+      accountId: urlParams.get('account_id')
+    }
+
     if (Boolean(dbxAccount.accessToken)) {
       this.props.dispatch(saveDbxAccount(dbxAccount))
     }
@@ -60,5 +55,5 @@ class SuccessCallback extends React.Component<Props, {}> {
 
 }
 
-const mapStateToProps = (state: RootState, ownProps: Props) => ({ accessToken: state.dropbox.accessToken })
+const mapStateToProps = (state: RootState, ownProps: Props) => ({ })
 export default connect(mapStateToProps)(SuccessCallback)

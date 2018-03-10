@@ -6,6 +6,8 @@ const initialState: AccountsEntity = {}
 
 export default function reducer (state = initialState, action: AccountActions): AccountsEntity {
   switch (action.type) {
+    case fromActions.POPULATE_ACCOUNTS_FROM_DROPBOX:
+      return action.payload
     case fromActions.SAVE_SALAD_RABBIT_ACCOUNT:
       return { ...state, [action.payload.uid]: action.payload }
     case fromActions.CLOSE_SALAD_RABBIT_ACCOUNT:
