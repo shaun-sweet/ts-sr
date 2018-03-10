@@ -56,6 +56,6 @@ export class DropboxWrapper {
 
   private createAccountConfig = () =>
     this.dbx.filesUpload({ path: '/accounts.salad', contents: JSON.stringify(STARTING_ACCOUNT) })
-      .then(console.log, console.error)
+      .then(res => console.log(`Starter Account Generated: ${res}`), console.error)
 
 }
