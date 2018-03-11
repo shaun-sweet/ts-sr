@@ -3,8 +3,7 @@ import { Dropbox } from 'dropbox'
 import { Dispatch } from 'react-redux'
 import * as SR from 'types'
 import { getFileJsonDispatchTypes } from './types'
-import { ConfigFileNames, STARTING_ACCOUNT } from './constants'
-enum FilePaths { ROOT = '' }
+import { ConfigFileNames, STARTING_ACCOUNT, FilePaths } from './constants'
 
 export class DropboxWrapper {
   private dbx: DropboxTypes.Dropbox

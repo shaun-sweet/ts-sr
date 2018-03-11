@@ -1,4 +1,5 @@
 export enum ConfigFileNames { ACCOUNTS = 'accounts.salad' }
+export enum FilePaths { ROOT = '' }
 
 export const STARTING_ACCOUNT = {
   '6aa0cad0-24a0-11e8-a913-75765b466619': {
