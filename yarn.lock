@@ -7344,16 +7344,16 @@ ts-loader@4.2.0:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
-tsconfig-paths-webpack-plugin@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-2.0.0.tgz#7652dc684bb3206c8e7e446831ca01cbf4d11772"
+tsconfig-paths-webpack-plugin@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-3.0.3.tgz#4d7a786f5f413baa36d4dbda3ff83554b140eb44"
   dependencies:
     chalk "^2.3.0"
-    tsconfig-paths "^3.1.1"
+    tsconfig-paths "^3.2.0"
 
-tsconfig-paths@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.1.1.tgz#368478faed54a247f2c8e59e44cb81418b2ae515"
+tsconfig-paths@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.2.0.tgz#22bfb63a23fca4d7845fe94dc015d5c85dcc06e5"
   dependencies:
     deepmerge "^2.0.1"
     strip-bom "^3.0.0"
