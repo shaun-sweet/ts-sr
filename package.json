@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development --output-pathinfo --history-api-fallback --hot --inline --progress --colors --port 3000",
     "build": "webpack --mode production -p --progress --colors",
     "lint": "tslint -c tslint.json 'src/**/*.ts?(x)'",
-    "get-config": "node tools/getConfig.js",
+    "get-config": "node ./tools/getConfig.js",
     "prettier": "prettier --write 'src/**/*.ts?(x)'"
   },
   "engines": {
