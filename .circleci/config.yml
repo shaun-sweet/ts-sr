@@ -37,7 +37,7 @@ jobs:
           at: /tmp
       - run:
           name: Pull config file and write to disk
-          command: SR_CONFIG_CONTEXT='dev' yarn run get-config
+          command: CONFIG_CONTEXT='dev' yarn run get-config
       - persist_to_workspace:
           root: /tmp
           paths:
