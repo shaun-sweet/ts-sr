@@ -30,6 +30,18 @@ jobs:
           root: /tmp
           paths:
             - salad-rabbit
+  get_dev_env_config:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /tmp
+      - run:
+          name: Pull config file and write to disk
+          command: SR_CONFIG_CONTEXT='dev' yarn run get-config
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - salad-rabbit
   dev_build:
     <<: *defaults
     steps:
@@ -59,9 +71,17 @@ workflows:
             branches:
               only:
                 - master
+      - get_dev_env_config:
+          requires:
+            - install_dependencies
+          filters:
+            branches:
+              only:
+                - master
       - dev_build:
           requires:
             - install_dependencies
+            - get_dev_env_config
           filters:
             branches:
               only:
