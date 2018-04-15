@@ -6,7 +6,7 @@
 defaults: &defaults
   working_directory: /tmp/salad-rabbit
   docker:
-    - image: circleci/node:8
+    - image: circleci/node:8@sha256:80e3c6e2a79b02188dc3017c8766f34cbb5e3f1f636d61c88d76694bcc07ff02
 
 version: 2
 jobs:
