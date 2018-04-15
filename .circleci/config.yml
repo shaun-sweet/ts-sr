@@ -101,9 +101,17 @@ workflows:
             branches:
               only:
                 - /renovate.*/
+      - get_dev_env_config:
+          requires:
+            - install_dependencies
+          filters:
+            branches:
+              only:
+                - /renovate.*/
       - dev_build:
           requires:
             - install_dependencies
+            - get_dev_env_config
           filters:
             branches:
               only:
