@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const {
   CONFIG_KEY,
-  SR_CONFIG_CONTEXT
+  CONFIG_CONTEXT
 } = process.env
 const CONFIG_API_URL = process.argv[2] || 'https://config.shaunsweet.com/rest/rawFile'
 const CONFIG_SAVE_TARGET = 'config.js'
