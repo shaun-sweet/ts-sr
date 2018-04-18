@@ -47,7 +47,7 @@
     "postcss-reporter": "5.0.0",
     "postcss-url": "7.3.2",
     "prettier": "1.12.1",
-    "react-hot-loader": "4.0.1",
+    "react-hot-loader": "4.1.0",
     "redux-devtools-extension": "2.13.2",
     "style-loader": "0.20.3",
     "ts-import-plugin": "1.4.4",
