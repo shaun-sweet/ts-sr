@@ -8,8 +8,8 @@ const {
 const CONFIG_API_URL = process.argv[2] || 'https://config.shaunsweet.com/rest/rawFile'
 const CONFIG_SAVE_TARGET = 'config.js'
 
-if (!CONFIG_KEY) throw new Error('Need ENV variable $SR_CONFIG_KEY exported in bash profile')
-if (!CONFIG_CONTEXT) throw new Error('Need ENV variable $SR_CONFIG_CONTEXT exported in bash profile')
+if (!CONFIG_KEY) throw new Error('Need ENV variable $CONFIG_KEY exported in bash profile')
+if (!CONFIG_CONTEXT) throw new Error('Need ENV variable $CONFIG_CONTEXT exported in bash profile')
 
 const client = axios.create({
   headers: {
@@ -25,6 +25,6 @@ client.get(CONFIG_API_URL)
   .then((res) => {
     fs.writeFile(CONFIG_SAVE_TARGET, res.data, (err) => {
       if (err) throw err
-      console.log(`"${CONFIG_CONTEXT}" config details written to file in the project root -> .env`)
+      console.log(`"${CONFIG_CONTEXT}" config details written to file in the project root -> ${CONFIG_SAVE_TARGET}`)
     })
   })
