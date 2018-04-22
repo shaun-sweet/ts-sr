@@ -88,7 +88,6 @@ workflows:
                 - master
       - deploy_to_dev:
           requires:
-            - install_dependencies
             - dev_build
           filters:
             branches:
