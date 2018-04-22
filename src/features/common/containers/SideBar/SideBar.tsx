@@ -12,21 +12,21 @@ const formItemLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8 }
 }
+
+const initialState = {
+  visible: false
+}
 interface Props {
   dispatch?: (actionCreator) => void
 }
-interface State {
-  visible: boolean
-}
+type State = Readonly<typeof initialState>
 
-class SideBar extends React.Component<Props, State> {
+class SideBar extends React.Component<Props, typeof initialState> {
   static displayName = 'SideBar'
-  state = {
-    visible: false
-  }
+  readonly state: State = initialState
 
   hide = () => this.setState({ visible: false })
-  handleVisibleChange = (visible) => this.setState({ visible })
+  handleVisibleChange = visible => this.setState({ visible })
   handleAddNewAccount = (newAccount: Account) => {
     this.props.dispatch(actions.saveAccount(newAccount))
   }
@@ -43,8 +43,21 @@ class SideBar extends React.Component<Props, State> {
           defaultOpenKeys={['sub1']}
           mode="inline"
         >
-          <Menu.Item key="1"><span><Icon type="wallet" /><span>Budget</span></span></Menu.Item>
-          <SubMenu key="sub2" title={<span><Icon type="folder" /><span>All Accounts</span></span>}>
+          <Menu.Item key="1">
+            <span>
+              <Icon type="wallet" />
+              <span>Budget</span>
+            </span>
+          </Menu.Item>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <Icon type="folder" />
+                <span>All Accounts</span>
+              </span>
+            }
+          >
             <Menu.Item key="5">Checking</Menu.Item>
             <Menu.Item key="6">Savings</Menu.Item>
           </SubMenu>
@@ -55,7 +68,6 @@ class SideBar extends React.Component<Props, State> {
           visible={this.state.visible}
           labelText="New Account"
         />
-
       </Styles>
     )
   }
