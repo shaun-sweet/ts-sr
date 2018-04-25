@@ -39,9 +39,9 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-redux@5.0.17":
-  version "5.0.17"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.17.tgz#55defac8b63a1b439796ff32f6f0aaeb53e249e4"
+"@types/react-redux@5.0.18":
+  version "5.0.18"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.18.tgz#95fdcce00b617b93c98a3684ed6666e75d8a669e"
   dependencies:
     "@types/react" "*"
     redux "^4.0.0"
