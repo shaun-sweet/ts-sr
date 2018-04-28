@@ -30,7 +30,7 @@
     "@types/uuid": "3.4.3",
     "@types/webpack": "4.1.4",
     "@types/webpack-env": "1.13.6",
-    "autoprefixer": "8.3.0",
+    "autoprefixer": "8.4.1",
     "axios": "0.18.0",
     "classnames": "2.2.5",
     "css-loader": "0.28.11",
