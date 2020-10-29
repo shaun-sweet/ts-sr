@@ -67,7 +67,7 @@
     "webpack-dev-server": "3.1.3"
   },
   "dependencies": {
-    "antd": "3.4.4",
+    "antd": "3.26.20",
     "dropbox": "4.0.3",
     "lodash": "4.17.10",
     "moment": "2.22.1",
