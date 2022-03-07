@@ -25,7 +25,7 @@
     "@types/react-dom": "16.0.5",
     "@types/react-redux": "5.0.19",
     "@types/react-router": "4.0.24",
-    "@types/react-router-redux": "5.0.13",
+    "@types/react-router-redux": "5.0.21",
     "@types/redux-actions": "2.2.4",
     "@types/uuid": "3.4.3",
     "@types/webpack": "4.1.4",
